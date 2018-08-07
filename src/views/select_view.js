@@ -9,6 +9,11 @@ SelectView.prototype.bindEvents = function () {
     const allFamilies = evt.detail;
     this.populate(allFamilies);
   });
+
+  this.element.addEventListener('change' (evt) => {
+    const selectedIndex = evt.target.value;
+    PubSub.publish('SelectedView:change', selectedIndex);
+  })
 };
 
 SelectView.prototype.populate = function (familiesData) {
