@@ -5,13 +5,13 @@ const FamilyInfoView = function (container) {
 }
 
 FamilyInfoView.prototype.bindEvents = function () {
-  PubSub.subscribe('InstrumentFamilies:all-instruments', (event) => {
+  PubSub.subscribe('InstrumentFamilies:family-selected', (event) => {
     const family = event.detail;
     this.render(family);
   })
 };
 
-FamilyInfoView.prototype.render = function () {
+FamilyInfoView.prototype.render = function (family) {
 
   const contentDiv = document.createElement('div');
   const title = document.createElement('h2');
@@ -25,11 +25,11 @@ FamilyInfoView.prototype.render = function () {
 
   const list = document.createElement('ul');
 
-  family.instruments.forEach(instrument) => {
+  family.instruments.forEach((instrument) => {
     const item = document.createElement('li');
-    item.textContent = instrument.value;
+    item.textContent = instrument;
     list.appendChild(item);
-  }
+  });
 
   contentDiv.appendChild(title);
   contentDiv.appendChild(description);
@@ -39,3 +39,5 @@ FamilyInfoView.prototype.render = function () {
   this.container.innerHTML = '';
   this.container.appendChild(contentDiv);
 };
+
+module.exports = FamilyInfoView;
