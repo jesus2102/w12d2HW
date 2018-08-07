@@ -1,8 +1,9 @@
-const InstrumentFamilies = require('./models/instrument_families.js')
+const InstrumentFamilies = require('./models/instrument_families.js');
+const SelectView = require('./views/select_view.js');
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function() {
   const selectElement = document.querySelector('#instrument-families');
   const familiesDropdown = new SelectView(selectElement);
-  InstrumentFamilies.bindEvents();
+  familiesDropdown.bindEvents();
   console.log('JavaScript Loaded');
 });

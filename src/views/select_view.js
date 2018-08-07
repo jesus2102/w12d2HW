@@ -9,14 +9,15 @@ SelectView.prototype.bindEvents = function () {
     const allFamilies = evt.detail;
     this.populate(allFamilies);
   });
+};
 
 SelectView.prototype.populate = function (familiesData) {
-  familiesData.forEach(family, index){
+  familiesData.forEach((family, index) => {
     const option = document.createElement('option');
     option.textContent = family.name;
     option.value = family.index;
     this.element.appendChild(option);
-  }
+  });
 };
 
-};
+module.exports = SelectView;
