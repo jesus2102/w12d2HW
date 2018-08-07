@@ -10,7 +10,7 @@ SelectView.prototype.bindEvents = function () {
     this.populate(allFamilies);
   });
 
-  this.element.addEventListener('change' (evt) => {
+  this.element.addEventListener('change', (evt) => {
     const selectedIndex = evt.target.value;
     PubSub.publish('SelectedView:change', selectedIndex);
   })

@@ -6,4 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const familiesDropdown = new SelectView(selectElement);
   familiesDropdown.bindEvents();
   console.log('JavaScript Loaded');
+
+  const familiesDataSource = new InstrumentFamilies();
+  familiesDataSource.bindEvents();
 });
